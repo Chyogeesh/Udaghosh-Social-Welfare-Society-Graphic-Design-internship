@@ -1,0 +1,28 @@
+def is_valid_pan(pan):
+    # Check if length is exactly 10
+    if len(pan) != 10:
+        return "NO"
+    
+    # Check first 5 characters are uppercase letters
+    for i in range(5):
+        if not pan[i].isalpha() or not pan[i].isupper():
+            return "NO"
+    
+    # Check next 4 characters are digits
+    for i in range(5, 9):
+        if not pan[i].isdigit():
+            return "NO"
+    
+    # Check last character is uppercase letter
+    if not pan[9].isalpha() or not pan[9].isupper():
+        return "NO"
+    
+    return "YES"
+
+# Read number of test cases
+n = int(input())
+
+# Process each test case
+for _ in range(n):
+    pan = input().strip()
+    print(is_valid_pan(pan))
